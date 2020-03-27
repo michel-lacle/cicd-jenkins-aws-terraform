@@ -30,7 +30,7 @@ resource "aws_iam_policy" "jenkins-put-object-policy" {
         {
             "Effect": "Allow",
             "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::jenkins-release-artifacts.f1kart.com"
+            "Resource": "arn:aws:s3:::jenkins-release-artifacts.f1kart.com/*"
         }
     ]
 }
