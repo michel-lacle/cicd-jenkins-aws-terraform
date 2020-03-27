@@ -14,8 +14,8 @@ resource "aws_security_group" "ec2_jenkins_sg" {
 
   ingress {
     description = "http traffic"
-    from_port = 80
-    to_port = 80
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
     cidr_blocks = [
       "0.0.0.0/0"]
@@ -44,13 +44,13 @@ resource "aws_instance" "ec2_jenkins" {
   # name.
   key_name = "cicd-jenkins-aws-terraform"
 
-  #user_data = file("webserver_install.sh")
+  user_data = file("install_jenkins.sh")
 
   vpc_security_group_ids = [
     aws_security_group.ec2_jenkins_sg.id]
 
   tags = {
-    Name = "ec2-webserver"
+    Name = "cicd-jenkins-aws-terraform"
     owner = "terraform-cicd-jenkins-aws-terraform"
     project = "cicd-jenkins-aws-terraform"
   }
