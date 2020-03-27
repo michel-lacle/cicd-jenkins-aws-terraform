@@ -46,7 +46,7 @@ resource "aws_instance" "ec2_jenkins" {
 
   user_data = file("install_jenkins.sh")
 
-  iam_instance_profile = aws_iam_instance_profile.jenkins_instance_profile
+  iam_instance_profile = aws_iam_instance_profile.jenkins_instance_profile.id
 
   vpc_security_group_ids = [
     aws_security_group.ec2_jenkins_sg.id]
