@@ -1,6 +1,6 @@
 # this role allows EC2 instances to access s3
 resource "aws_iam_role" "jenkins-s3-role" {
-  name = "ec2-s3-terraform-template-role"
+  name = "jenkins-s3-role"
 
   assume_role_policy = <<EOF
 {
