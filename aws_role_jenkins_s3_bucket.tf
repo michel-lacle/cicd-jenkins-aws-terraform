@@ -1,3 +1,8 @@
+resource "aws_iam_instance_profile" "jenkins_instance_profile" {
+  name = "jenkins_instance_profile"
+  role = aws_iam_role.jenkins-s3-role.name
+}
+
 # this role allows EC2 instances to access s3
 resource "aws_iam_role" "jenkins-s3-role" {
   name = "jenkins-s3-role"
