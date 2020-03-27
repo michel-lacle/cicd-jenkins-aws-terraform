@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2_jenkins_sg" {
-  name = "ec2-sg-webserver"
+  name = "ec2_jenkins_sg"
   description = "Allow ssh & http inbound traffic"
   vpc_id = "vpc-bb9f3bc0"
 
@@ -42,7 +42,7 @@ resource "aws_instance" "ec2_jenkins" {
   # this is optional, but needed if you want to ssh into your ec2 instance
   # here I have manually created a key pair in the console and I'm supplying the
   # name.
-  key_name = "terraform-templates-aws-ec2"
+  key_name = "cicd-jenkins-aws-terraform"
 
   #user_data = file("webserver_install.sh")
 
